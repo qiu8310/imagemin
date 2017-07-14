@@ -4,8 +4,10 @@ import * as fs from 'fs-extra'
 import * as path from 'path'
 import * as cli from 'mora-scripts/libs/tty/cli'
 import * as exists from 'mora-scripts/libs/fs/exists'
+import * as inject from 'mora-scripts/libs/fs/inject'
 
 const root = path.dirname(__dirname)
+const submodules = Object.keys(require('../modules.json'))
 const submoduleFolders = ((dir) => {
   return fs.readdirSync(dir).filter(name => !/\.\w+$/.test(name)).map(name => path.join(dir, name))
 })(path.join(root, 'modules'))
@@ -15,7 +17,6 @@ cli({help: false, version: false})
     submodule: {
       desc: '根据 map-extra.json 判断是否所有 submodule 都安装了，没安装的话输出安装命令',
       cmd() {
-        const submodules = Object.keys(require('./modules.json'))
         let existKeys = submoduleFolders.map(f => path.basename(f))
         submodules
           .filter(key => existKeys.indexOf(key) < 0)
@@ -41,23 +42,26 @@ cli({help: false, version: false})
           return map
         }, {})
 
-        fs.writeFileSync(path.join(root, 'src', 'modules-map.json'), JSON.stringify(data, null, 2))
+        fs.writeFileSync(path.join(root, 'modules-map.json'), JSON.stringify(data, null, 2))
+      }
+    },
+    inject: {
+      desc: '注入 modules 到 interface.ts 中',
+      cmd() {
+        inject(path.join(root, 'src', 'interface.ts'), {bins: submodules.map(s => `${s}: IBinWrapper`).join(require('os').EOL)})
       }
     },
     preinstall: {
       desc: '预安装指定的二进制文件',
       cmd() {
         submoduleFolders.forEach(folder => {
-          let distDir = path.join(root, 'vendors', path.basename(folder))
-          fs.ensureDirSync(distDir)
-          let srcDir = ['macos', 'osx'].map(n => path.join(folder, 'vendor', n)).find(f => fs.existsSync(f))
-          // let destDir = path.join(folder, 'vendors', 'macos')
+          let distDir = path.join(root, 'vendors', 'macos')
 
-          console.log(srcDir)
-          // fs.removeSync(destDir)
-          // if (srcDir) {
-          //   fs.copySync(srcDir, destDir)
-          // }
+          let srcDir = ['macos', 'osx'].map(k => path.join(folder, 'vendor', k)).find(f => fs.existsSync(f))
+          if (srcDir) {
+            fs.ensureDirSync(distDir)
+            readdirSync(srcDir).forEach(file => fs.copySync(path.join(srcDir, file), path.join(distDir, file)))
+          }
         })
       }
     }
@@ -65,7 +69,6 @@ cli({help: false, version: false})
   .parse(function() {
     this.help()
   })
-
 
 function parseOsDir(osDir) {
   let result = []
