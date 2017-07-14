@@ -1,0 +1,15 @@
+.vscode/
+__mocks__
+node_modules/
+coverage/
+npm-debug.log
+.DS_Store
+.idea/
+modules
+
+src/
+lib/__tests__
+tsconfig.json
+tslint.json
+.gitmessage
+.gitignore

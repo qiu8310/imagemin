@@ -1,0 +1,272 @@
+{
+  "gifsicle": {
+    "base": "https://raw.githubusercontent.com/imagemin/gifsicle-bin/v3.0.4/vendor/",
+    "src": [
+      {
+        "platform": "freebsd",
+        "arch": "x64",
+        "file": "freebsd/x64/gifsicle"
+      },
+      {
+        "platform": "freebsd",
+        "arch": "x86",
+        "file": "freebsd/x86/gifsicle"
+      },
+      {
+        "platform": "linux",
+        "arch": "x64",
+        "file": "linux/x64/gifsicle"
+      },
+      {
+        "platform": "linux",
+        "arch": "x86",
+        "file": "linux/x86/gifsicle"
+      },
+      {
+        "platform": "darwin",
+        "file": "macos/gifsicle"
+      },
+      {
+        "platform": "sunos",
+        "arch": "x64",
+        "file": "sunos/x64/gifsicle"
+      },
+      {
+        "platform": "sunos",
+        "arch": "x86",
+        "file": "sunos/x86/gifsicle"
+      },
+      {
+        "platform": "win32",
+        "arch": "x64",
+        "file": "win/x64/gifsicle.exe"
+      },
+      {
+        "platform": "win32",
+        "arch": "x86",
+        "file": "win/x86/gifsicle.exe"
+      }
+    ]
+  },
+  "guetzli": {
+    "base": "https://raw.githubusercontent.com/imagemin/guetzli-bin/v1.0.1/vendor/",
+    "src": [
+      {
+        "platform": "linux",
+        "file": "linux/guetzli"
+      },
+      {
+        "platform": "darwin",
+        "file": "macos/guetzli"
+      },
+      {
+        "platform": "win32",
+        "file": "win/guetzli.exe"
+      }
+    ]
+  },
+  "jpegoptim": {
+    "base": "https://raw.githubusercontent.com/imagemin/jpegoptim-bin/v3.0.0/vendor/",
+    "src": [
+      {
+        "platform": "linux",
+        "file": "linux/jpegoptim"
+      },
+      {
+        "platform": "osx",
+        "file": "osx/jpegoptim"
+      },
+      {
+        "platform": "win32",
+        "file": "win32/jpegoptim.exe"
+      }
+    ]
+  },
+  "jpegtran": {
+    "base": "https://raw.githubusercontent.com/imagemin/jpegtran-bin/v3.2.0/vendor/",
+    "src": [
+      {
+        "platform": "freebsd",
+        "arch": "x64",
+        "file": "freebsd/x64/jpegtran"
+      },
+      {
+        "platform": "freebsd",
+        "arch": "x86",
+        "file": "freebsd/x86/jpegtran"
+      },
+      {
+        "platform": "linux",
+        "arch": "x64",
+        "file": "linux/x64/jpegtran"
+      },
+      {
+        "platform": "linux",
+        "arch": "x86",
+        "file": "linux/x86/jpegtran"
+      },
+      {
+        "platform": "darwin",
+        "file": "macos/jpegtran"
+      },
+      {
+        "platform": "sunos",
+        "arch": "x64",
+        "file": "sunos/x64/jpegtran"
+      },
+      {
+        "platform": "sunos",
+        "arch": "x86",
+        "file": "sunos/x86/jpegtran"
+      },
+      {
+        "platform": "win32",
+        "arch": "x64",
+        "file": "win/x64/jpegtran.exe"
+      },
+      {
+        "platform": "win32",
+        "arch": "x64",
+        "file": "win/x64/libjpeg-62.dll"
+      },
+      {
+        "platform": "win32",
+        "arch": "x86",
+        "file": "win/x86/jpegtran.exe"
+      },
+      {
+        "platform": "win32",
+        "arch": "x86",
+        "file": "win/x86/libjpeg-62.dll"
+      }
+    ]
+  },
+  "mozjpeg": {
+    "base": "https://raw.githubusercontent.com/imagemin/mozjpeg-bin/v4.1.2/vendor/",
+    "src": [
+      {
+        "platform": "linux",
+        "file": "linux/cjpeg"
+      },
+      {
+        "platform": "darwin",
+        "file": "macos/cjpeg"
+      },
+      {
+        "platform": "win32",
+        "file": "win/cjpeg.exe"
+      }
+    ]
+  },
+  "optipng": {
+    "base": "https://raw.githubusercontent.com/imagemin/optipng-bin/v4.0.0/vendor/",
+    "src": [
+      {
+        "platform": "freebsd",
+        "arch": "x64",
+        "file": "freebsd/x64/optipng"
+      },
+      {
+        "platform": "freebsd",
+        "arch": "x86",
+        "file": "freebsd/x86/optipng"
+      },
+      {
+        "platform": "linux",
+        "arch": "x64",
+        "file": "linux/x64/optipng"
+      },
+      {
+        "platform": "linux",
+        "arch": "x86",
+        "file": "linux/x86/optipng"
+      },
+      {
+        "platform": "darwin",
+        "file": "macos/optipng"
+      },
+      {
+        "platform": "sunos",
+        "arch": "x64",
+        "file": "sunos/x64/optipng"
+      },
+      {
+        "platform": "sunos",
+        "arch": "x86",
+        "file": "sunos/x86/optipng"
+      },
+      {
+        "platform": "win32",
+        "file": "win/optipng.exe"
+      }
+    ]
+  },
+  "pngcrush": {
+    "base": "https://raw.githubusercontent.com/imagemin/pngcrush-bin/v3.1.0/vendor/",
+    "src": [
+      {
+        "platform": "linux",
+        "file": "linux/pngcrush"
+      },
+      {
+        "platform": "osx",
+        "file": "osx/pngcrush"
+      },
+      {
+        "platform": "win32",
+        "arch": "x64",
+        "file": "win/x64/pngcrush.exe"
+      },
+      {
+        "platform": "win32",
+        "arch": "x86",
+        "file": "win/x86/pngcrush.exe"
+      }
+    ]
+  },
+  "pngquant": {
+    "base": "https://raw.githubusercontent.com/imagemin/pngquant-bin/v3.1.1/vendor/",
+    "src": [
+      {
+        "platform": "freebsd",
+        "arch": "x64",
+        "file": "freebsd/x64/pngquant"
+      },
+      {
+        "platform": "linux",
+        "arch": "x64",
+        "file": "linux/x64/pngquant"
+      },
+      {
+        "platform": "linux",
+        "arch": "x86",
+        "file": "linux/x86/pngquant"
+      },
+      {
+        "platform": "darwin",
+        "file": "macos/pngquant"
+      },
+      {
+        "platform": "win32",
+        "file": "win/pngquant.exe"
+      }
+    ]
+  },
+  "zopflipng": {
+    "base": "https://raw.githubusercontent.com/imagemin/zopflipng-bin/v4.0.0/vendor/",
+    "src": [
+      {
+        "platform": "linux",
+        "file": "linux/zopflipng"
+      },
+      {
+        "platform": "osx",
+        "file": "osx/zopflipng"
+      },
+      {
+        "platform": "win32",
+        "file": "win32/zopflipng.exe"
+      }
+    ]
+  }
+}

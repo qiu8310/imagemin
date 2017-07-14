@@ -1,0 +1,21 @@
+{
+  "name": "@mora/imagemin",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {},
+  "author": "Mora <qiuzhongleiabc@126.com> (https://qiu8310.github.io/)",
+  "license": "MIT",
+  "dependencies": {
+    "@types/fs-extra": "3.0.3",
+    "bin-wrapper": "3.0.2",
+    "fs-extra": "3.0.1",
+    "mora-scripts": "~1.6.5",
+    "tslib": "1.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "7",
+    "tslint": "5.5.0",
+    "typescript": "2.4.1"
+  }
+}

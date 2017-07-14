@@ -1,0 +1,27 @@
+[submodule "modules/zopflipng"]
+	path = modules/zopflipng
+	url = https://github.com/imagemin/zopflipng-bin.git
+[submodule "modules/jpegtran"]
+	path = modules/jpegtran
+	url = https://github.com/imagemin/jpegtran-bin.git
+[submodule "modules/mozjpeg"]
+	path = modules/mozjpeg
+	url = https://github.com/imagemin/mozjpeg-bin.git
+[submodule "modules/gifsicle"]
+	path = modules/gifsicle
+	url = https://github.com/imagemin/gifsicle-bin.git
+[submodule "modules/jpegoptim"]
+	path = modules/jpegoptim
+	url = https://github.com/imagemin/jpegoptim-bin.git
+[submodule "modules/pngquant"]
+	path = modules/pngquant
+	url = https://github.com/imagemin/pngquant-bin.git
+[submodule "modules/guetzli"]
+	path = modules/guetzli
+	url = https://github.com/imagemin/guetzli-bin.git
+[submodule "modules/optipng"]
+	path = modules/optipng
+	url = https://github.com/imagemin/optipng-bin.git
+[submodule "modules/pngcrush"]
+	path = modules/pngcrush
+	url = https://github.com/imagemin/pngcrush-bin.git

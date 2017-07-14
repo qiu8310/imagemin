@@ -1,0 +1,39 @@
+{
+  "gifsicle": {
+    "desc": "xxx",
+    "alias": ["gif"]
+  },
+  "optipng": {
+    "desc": "",
+    "alias": []
+  },
+  "jpegtran": {
+    "desc": "",
+    "alias": []
+  },
+  "mozjpeg": {
+    "desc": "",
+    "alias": []
+  },
+
+  "guetzli": {
+    "desc": "",
+    "alias": []
+  },
+  "jpegoptim": {
+    "desc": "",
+    "alias": []
+  },
+  "pngcrush": {
+    "desc": "",
+    "alias": []
+  },
+  "pngquant": {
+    "desc": "",
+    "alias": []
+  },
+  "zopflipng": {
+    "desc": "",
+    "alias": []
+  }
+}
