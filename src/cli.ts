@@ -2,6 +2,9 @@ import * as ospath from 'mora-scripts/libs/fs/ospath'
 import * as cli from 'mora-scripts/libs/tty/cli'
 import * as fs from 'fs-extra'
 import * as path from 'path'
+import * as child from 'child_process'
+
+import wrappers from './bin-wrappers'
 
 const tmpDir = path.join(ospath.tmp(), 'imagemin')
 
@@ -18,7 +21,15 @@ cli({
   'o | outputDir': '<string> 输出目录, 源文件不会改变，压缩后的文件会保存在此'
 })
 .commands({
-
+  ...(Object.keys(wrappers).reduce((commands, key) => {
+    commands[key] = {
+      cmd(res) {
+        // console.log(wrappers[key].path())
+        child.spawn(wrappers[key].path(), res._, {stdio: 'inherit'})
+      }
+    }
+    return commands
+  }, {}))
 })
 .parse((res) => {
   console.log(res)

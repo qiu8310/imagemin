@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "description": "",
   "main": "lib/index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "node lib/install.js"
+  },
   "author": "Mora <qiuzhongleiabc@126.com> (https://qiu8310.github.io/)",
   "license": "MIT",
   "dependencies": {

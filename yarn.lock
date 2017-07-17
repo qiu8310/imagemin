@@ -9,8 +9,8 @@
     "@types/node" "*"
 
 "@types/node@*", "@types/node@7":
-  version "7.0.36"
-  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-7.0.36.tgz#54286fcce8a4f7498cea1ec5fce5f5edd3521948"
+  version "7.0.37"
+  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-7.0.37.tgz#f129fff94d14a60c3d99eadb9fe0c98119e09c8f"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -1063,12 +1063,11 @@ mkdirp@^0.5.0:
     minimist "0.0.8"
 
 mora-scripts@~1.6.5:
-  version "1.6.6"
-  resolved "http://registry.npm.taobao.org/mora-scripts/download/mora-scripts-1.6.6.tgz#0b611926ab9733c2dfca2457e0000904649a2ef8"
+  version "1.6.7"
+  resolved "http://registry.npm.taobao.org/mora-scripts/download/mora-scripts-1.6.7.tgz#c54cab4b7ec682707f90819f2616dd2618df53df"
   dependencies:
     cross-spawn "5.1.0"
     semver-regex "1.0.0"
-    tslib "1.6.0"
 
 multipipe@^0.1.2:
   version "0.1.2"
@@ -1529,10 +1528,6 @@ trim-repeated@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-tslib@1.6.0:
-  version "1.6.0"
-  resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.6.0.tgz#cf36c93e02ae86a20fc131eae511162b869a6652"
-
 tslib@1.7.1, tslib@^1.7.1:
   version "1.7.1"
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
@@ -1553,8 +1548,8 @@ tslint@5.5.0:
     tsutils "^2.5.1"
 
 tsutils@^2.5.1:
-  version "2.6.1"
-  resolved "http://registry.npm.taobao.org/tsutils/download/tsutils-2.6.1.tgz#98ecf009594f4e4af884057be4cf41a450bc7637"
+  version "2.7.1"
+  resolved "http://registry.npm.taobao.org/tsutils/download/tsutils-2.7.1.tgz#411a0e9466525a2b2869260a55620d7292155e24"
   dependencies:
     tslib "^1.7.1"
 

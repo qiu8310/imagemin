@@ -149,8 +149,8 @@
         "file": "linux/cjpeg"
       },
       {
-        "platform": "darwin",
-        "file": "macos/cjpeg"
+        "platform": "osx",
+        "file": "osx/cjpeg"
       },
       {
         "platform": "win32",

@@ -1,19 +1,23 @@
 {
   "gifsicle": {
-    "desc": "xxx",
-    "alias": ["gif"]
+    "desc": "",
+    "alias": ["gif"],
+    "test": ["--help"]
   },
   "optipng": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-help"]
   },
   "jpegtran": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-version"]
   },
   "mozjpeg": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-version"]
   },
 
   "guetzli": {
@@ -22,18 +26,22 @@
   },
   "jpegoptim": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-h"]
   },
   "pngcrush": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-h"]
   },
   "pngquant": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-h"]
   },
   "zopflipng": {
     "desc": "",
-    "alias": []
+    "alias": [],
+    "test": ["-h"]
   }
 }

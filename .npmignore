@@ -9,6 +9,11 @@ modules
 
 src/
 lib/__tests__
+lib/script.js
+lib/script.d.js
+lib/cli.d.ts
+lib/install.d.ts
+
 tsconfig.json
 tslint.json
 .gitmessage
