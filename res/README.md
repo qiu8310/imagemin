@@ -5,6 +5,6 @@
 
 * [guetzli](https://github.com/imagemin/guetzli-bin)：谷歌出的，压缩比较猛，针对 <JPG>
 * [jpegoptim](https://github.com/imagemin/jpegoptim-bin)
-* [pngquant](https://github.com/imagemin/pngquant-bin): 针对 <PNG> 图片的有损压缩
+* [pngquant](https://github.com/imagemin/pngquant-bin)
 * [pngcrush](https://github.com/imagemin/pngcrush-bin)
 * [zopflipng](https://github.com/imagemin/zopflipng-bin)：谷歌出的，压缩比较猛

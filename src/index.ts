@@ -18,6 +18,7 @@ export interface IImageminResultListItem {
 export interface IImageminResult {
   srcBuffer: Buffer
   minBuffer: Buffer
+  minTool: string
   list: IImageminResultListItem[]
 }
 
@@ -139,10 +140,13 @@ export default class Imagemin {
 
             resolve(buffers.reduce((result: IImageminResult, buffer: Buffer, index: number) => {
               if (!buffer) return result
-              if (!result.minBuffer || buffer.length < result.minBuffer.length) result.minBuffer = buffer
+              if (buffer.length < result.minBuffer.length) {
+                result.minBuffer = buffer
+                result.minTool = binKeys[index]
+              }
               result.list.push({key: binKeys[index], buffer})
               return result
-            }, {list: [], minBuffer: null, srcBuffer: fileBuffer}))
+            }, {list: [], minBuffer: fileBuffer, minTool: 'none', srcBuffer: fileBuffer}))
           },
 
           err => {
@@ -165,7 +169,7 @@ function initDefaultOptions(opt: IOptions): IOptions {
   opt.tools = opt.tools || 'all'
   opt.tempDir = opt.tempDir || path.join(ospath.tmp(), 'imagemin')
 
-  Object.keys(schema).forEach(key => {
+  Object.keys(wrappers).forEach(key => {
     opt[key] = opt[key] || {}
     let conf = schema[key].properties
     Object.keys(conf).forEach(confKey => {

@@ -19,6 +19,7 @@
     "fs-extra": "3.0.1",
     "imageinfo": "1.0.4",
     "lodash": "4.17.4",
+    "mora-common": "~0.0.18",
     "mora-scripts": "~1.6.5",
     "tslib": "1.7.1"
   },

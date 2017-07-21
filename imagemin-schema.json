@@ -3,6 +3,10 @@
   "title": "JSON schema for NPM package @mora/tinypng config file",
   "type": "object",
   "properties": {
+    "tools": {
+      "type": ["array", "string"],
+      "description": "使用的压缩工具"
+    },
     "gifsicle": {
       "type": "object",
       "description": "gifsicle 命令行选项",

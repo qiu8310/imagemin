@@ -62,7 +62,9 @@ cli({help: false, version: false})
       desc: '注入 modules 到 interface.ts 中',
       cmd() {
         const properties = require('../imagemin-schema.json').properties
-        let binOptions = Object.keys(properties).map(key => parseSchemaDefineToTS(key, properties[key])).join(EOL)
+        let binOptions = Object.keys(properties)
+          .filter(key => key !== 'tools')
+          .map(key => parseSchemaDefineToTS(key, properties[key])).join(EOL)
         console.log(inject(path.join(root, 'src', 'interface.ts'), {
           binWrappers: submodules.map(s => `${s}: IBinWrapper`).join(require('os').EOL),
           bins: 'export declare type IBin = \'' + submodules.join('\' | \'') + '\'',
