@@ -15,8 +15,8 @@
     "test": ["-h"]
   },
   "guetzli": {
-    "desc": "",
-    "alias": []
+    "desc": "google 出的",
+    "alias": ["jpg"]
   },
 
   "optipng": {
@@ -35,10 +35,11 @@
     "test": ["-h"]
   },
   "zopflipng": {
-    "desc": "",
-    "alias": [],
+    "desc": "google 出的",
+    "alias": ["png"],
     "test": ["-h"]
   },
+
   "gifsicle": {
     "desc": "",
     "alias": ["gif"],

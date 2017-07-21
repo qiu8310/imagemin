@@ -97,7 +97,7 @@ export default class Imagemin {
 
     Object.keys(this.meta).forEach(key => {
       if (!this[key]) {
-        this[key] = (filepath: string, options: IOptions) => {
+        this[key] = (filepath: string, fileBuffer: Buffer, options: IOptions) => {
           let meta = this.meta[key]
           return new Promise((resolve, reject) => {
             let output = getOutputFilepath(filepath, options)
@@ -106,7 +106,11 @@ export default class Imagemin {
 
             run(wrappers[key], args, err => {
               if (err) return reject(err)
-              return resolve(fs.readFileSync(output))
+              try {
+                resolve(fs.readFileSync(output)) // 有些工具压缩后的文件如果不比源文件小不会生成 output
+              } catch (e) {
+                resolve(fileBuffer)
+              }
             })
           })
         }
@@ -133,7 +137,7 @@ export default class Imagemin {
       })
       if (!binKeys.length) return reject('No minify tools')
 
-      Promise.all(binKeys.map(k => this[k](filepath, opt).catch(e => console.error(k, e))))
+      Promise.all(binKeys.map(k => this[k](filepath, fileBuffer, opt).catch(e => console.error(k, e))))
         .then(
           buffers => {
             destroyDir(opt.tempDir)
@@ -157,10 +161,10 @@ export default class Imagemin {
     })
   }
 
-  private tinypng(filepath: string, opt: IOptions): Promise<Buffer> {
+  private tinypng(filepath: string, fileBuffer: Buffer, opt: IOptions): Promise<Buffer> {
     return new Tinypng(opt.tinypng).tiny(filepath)
   }
-  private svgo(filepath: string, opt: IOptions): Promise<Buffer> {
+  private svgo(filepath: string, fileBuffer: Buffer, opt: IOptions): Promise<Buffer> {
     return new Tinypng({svgo: opt.svgo, tokens: []}).tiny(filepath)
   }
 }

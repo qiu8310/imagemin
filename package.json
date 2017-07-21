@@ -1,7 +1,7 @@
 {
   "name": "@mora/imagemin",
   "version": "0.0.0",
-  "description": "",
+  "description": "压缩图片",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "Mora <qiuzhongleiabc@126.com> (https://qiu8310.github.io/)",
   "license": "MIT",
   "dependencies": {
-    "@mora/tinypng": "0.0.6",
+    "@mora/tinypng": "~0.0.6",
     "@types/fs-extra": "3.0.3",
     "@types/lodash": "4",
     "bin-wrapper": "3.0.2",

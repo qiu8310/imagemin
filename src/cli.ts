@@ -11,6 +11,7 @@ import Imagemin from './index'
 import {runProgressTasks} from '@mora/tinypng/lib/helper'
 
 import wrappers from './bin-wrappers'
+const binInfo = require('../modules')
 
 const color = clog.format
 
@@ -30,7 +31,9 @@ cli({
 })
 .commands({
   ...(Object.keys(wrappers).reduce((commands, key) => {
-    commands[key] = {
+    let alias = [key].concat(binInfo[key].alias || [])
+    commands[alias.join(' | ')] = {
+      desc: binInfo[key].desc,
       cmd(res) {
         child.spawn(wrappers[key].path(), res._, {stdio: 'inherit'})
       }
@@ -42,7 +45,6 @@ cli({
   let options: IOptions
   if (res.config) options = require(res.config)
   else options = config('imagemin-config') || {}
-
   let im = new Imagemin(options)
 
   let data = []
@@ -76,7 +78,7 @@ cli({
             let oldFile = path.resolve(path.join(res.backupDir || basedir, oldName))
             let newFile = path.resolve(path.join(res.outputDir || basedir, newName))
 
-            if (res.dry) {
+            if (!res.dry) {
               writeFileSync(newFile, target.minBuffer)
               if (oldFile !== newFile) writeFileSync(oldFile, target.srcBuffer)
             }

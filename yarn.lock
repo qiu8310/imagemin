@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@mora/tinypng@0.0.6":
-  version "0.0.6"
-  resolved "http://registry.npm.taobao.org/@mora/tinypng/download/@mora/tinypng-0.0.6.tgz#365d7235e84c5695946a5aafc63f2fbab7ea678b"
+"@mora/tinypng@~0.0.6":
+  version "0.0.8"
+  resolved "http://registry.npm.taobao.org/@mora/tinypng/download/@mora/tinypng-0.0.8.tgz#c8acff333022330afdd17611211c7af94571f86c"
   dependencies:
     fs-extra "~3.0.1"
     log-update "2.0.0"
@@ -1154,7 +1154,7 @@ mkdirp@^0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mora-common@0.0.18, mora-common@~0.0.10:
+mora-common@~0.0.10, mora-common@~0.0.18:
   version "0.0.18"
   resolved "http://registry.npm.taobao.org/mora-common/download/mora-common-0.0.18.tgz#2b02fb6ad53991bc13e9941e2b83794e42b2e742"
 
