@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import * as cli from 'mora-scripts/libs/tty/cli'
 import * as config from 'mora-scripts/libs/fs/config'
 import * as table from 'mora-scripts/libs/tty/table'
