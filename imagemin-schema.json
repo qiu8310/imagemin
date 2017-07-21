@@ -1,0 +1,344 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "JSON schema for NPM package @mora/tinypng config file",
+  "type": "object",
+  "properties": {
+    "gifsicle": {
+      "type": "object",
+      "description": "gifsicle 命令行选项",
+      "properties": {
+        "interlace": {
+          "type": "boolean",
+          "default": true,
+          "description": "Turn on interlacing"
+        },
+        "optimize": {
+          "type": "number",
+          "default": 2,
+          "description": "Optimize output GIFs, 0-7"
+        },
+        "noWarnings": {
+          "type": "boolean",
+          "default": true
+        },
+        "colors": {
+          "type": "number",
+          "description": "Reduce the number of colors, 0-256"
+        },
+        "resize": {
+          "type": "string",
+          "description": "WxH  Resize the output GIF to WxH"
+        },
+        "resizeWidth": {
+          "type": "number",
+          "description": "Resize to width W and proportional height"
+        },
+        "resizeHeight": {
+          "type": "number",
+          "description": "Resize to height H and proportional width"
+        },
+        "resizeFit": {
+          "type": "string",
+          "description": "WxH  Resize if necessary to fit within WxH"
+        },
+        "scale": {
+          "type": "string",
+          "description": "XFACTOR[xYFACTOR]  Scale the output GIF by XFACTORxYFACTOR"
+        },
+        "background": {
+          "type": "string",
+          "description": "Set background color"
+        },
+        "transparent": {
+          "type": "string",
+          "description": "Set some color to transparent"
+        },
+        "crop": {
+          "type": "string",
+          "description": "X,Y+WxH | X,Y-X2,Y2  Crop the image"
+        },
+        "cropTransparency": {
+          "type": "boolean",
+          "description": "Crop transparent borders off the image"
+        },
+        "flipHorizontal": { "type": "boolean" },
+        "flipVertical": { "type": "boolean" },
+        "rotate_90": { "type": "boolean" },
+        "rotate_180": { "type": "boolean" },
+        "rotate_270": { "type": "boolean" },
+        "noRotate": { "type": "boolean" }
+      }
+    },
+    "jpegtran": {
+      "type": "object",
+      "description": "jpegtran 命令行选项",
+      "properties": {
+        "copy": {
+          "type": "string",
+          "default": "none",
+          "description": "Copy how much markers from source file",
+          "anyOf": [
+            {
+              "enum": [
+                "none",
+                "comments",
+                "all"
+              ]
+            }
+          ]
+        },
+        "optimize": {
+          "type": "boolean",
+          "default": true,
+          "description": "Optimize Huffman table (smaller file, but slow compression)"
+        },
+        "progressive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Create progressive JPEG file"
+        },
+        "crop": {
+          "type": "string",
+          "description": "WxH+X+Y  Crop to a rectangular subarea"
+        },
+        "grayscale": {
+          "type": "boolean",
+          "description": "Reduce to grayscale (omit color data)"
+        },
+        "flip": {
+          "type": "string",
+          "description": "Mirror image (left-right or top-bottom)",
+          "anyOf":[{"enum": ["horizontal", "vertical"]}]
+        },
+        "perfect": {
+          "type": "string",
+          "description": "Fail if there is non-transformable edge blocks"
+        },
+        "rotate": {
+          "type": "number",
+          "description": "Rotate image (degrees clockwise)",
+          "anyOf":[{"enum": [90, 180, 270]}]
+        },
+        "transpose": {
+          "type": "boolean",
+          "description": "Transpose image"
+        },
+        "transverse": {
+          "type": "boolean",
+          "description": "Transverse transpose image"
+        },
+        "trim": {
+          "type": "boolean",
+          "description": "Drop non-transformable edge blocks"
+        }
+      }
+    },
+    "jpegoptim": {
+      "type": "object",
+      "description": "jpegoptim 命令行选项",
+      "properties": {
+        "force": { "type": "boolean", "default": true, "description": "force optimization" },
+        "quality": { "type": "number", "description": "0-100  Set maximum image quality factor (disables lossless optimization mode, which is by default on)" },
+        "max": { "type": "number", "description": "0-100  Set maximum image quality factor (disables lossless optimization mode, which is by default on)" },
+        "size": { "type": "string", "description": "Try to optimize file to given size (disables lossless optimization mode). Target size is specified either in kilo bytes (1 - n) or as percentage (1% - 99%)" },
+        "stripAll": { "type": "boolean", "default": true, "description": "strip all markers from output file" },
+        "stripNone": { "type": "boolean", "description": "do not strip any markers" },
+        "stripCom": { "type": "boolean", "description": "strip Comment markers from output file" },
+        "stripExif": { "type": "boolean", "description": "strip Exif markers from output file" },
+        "stripIptc": { "type": "boolean", "description": "strip IPTC/Photoshop (APP13) markers from output file" },
+        "stripIcc": { "type": "boolean", "description": "strip ICC profile markers from output file" },
+        "stripXmp": { "type": "boolean", "description": "strip XMP markers markers from output file" },
+        "allProgressive": { "type": "boolean", "description": "force all output files to be progressive" },
+        "allNormal": { "type": "boolean", "description": "force all output files to be non-progressive" }
+      }
+    },
+    "mozjpeg": {
+      "type": "object",
+      "description": "mozjpeg 命令行选项",
+      "properties": {
+        "quality": {
+          "type": "number",
+          "description": "Compression quality (0..100; 5-95 is useful range)"
+        },
+        "grayscale": {
+          "type": "boolean",
+          "description": "Create monochrome JPEG file"
+        },
+        "rgb": {
+          "type": "boolean",
+          "description": "Create RGB JPEG file"
+        },
+        "progressive": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create progressive JPEG file (enabled by default)"
+        },
+        "baseline": {
+          "type": "boolean",
+          "description": "Create baseline JPEG file (disable progressive coding)"
+        },
+        "fastcrush": {
+          "type": "boolean",
+          "description": "Disable progressive scan optimization"
+        }
+      }
+    },
+    "guetzli": {
+      "type": "object",
+      "description": "guetzli 命令行选项",
+      "properties": {
+        "quality": {
+          "type": "number",
+          "description": "Visual quality to aim for, expressed as a JPEG quality value"
+        },
+        "memlimit": {
+          "type": "string",
+          "description": "Memory limit in MB. Guetzli will fail if unable to stay under the limit. Default is 6000 MB"
+        },
+        "nomemlimit": {
+          "type": "boolean",
+          "description": "Do not limit memory usage"
+        }
+      }
+    },
+    "optipng": {
+      "type": "object",
+      "description": "optipng 命令行选项",
+      "properties": {
+        "strip": {
+          "type": "string",
+          "default": "all",
+          "description": "strip metadata objects (e.g. 'all')"
+        },
+        "fix": {
+          "type": "boolean",
+          "default": true,
+          "description": "enable error recovery"
+        },
+        "o": {
+          "type": "number",
+          "default": 2,
+          "description": "optimization level (0-7)"
+        },
+        "f": {
+          "type": "string",
+          "description": "PNG delta filters (0-5)"
+        },
+        "i": {
+          "type": "string",
+          "description": "PNG interlace type (0-1)"
+        }
+      }
+    },
+    "pngcrush": {
+      "type": "object",
+      "description": "pngcrush 命令行选项",
+      "properties": {
+        "blacken": {
+          "type": "boolean",
+          "description": "zero samples underlying fully-transparent pixels.  Changing the color samples to zero can improve the compressibility. Since this is a lossy operation, blackening is off by default."
+        },
+        "brute": {
+          "type": "boolean",
+          "default": true,
+          "description": "use brute-force: try 148 different methods.  Very time-consuming and generally not worthwhile. You can restrict this option to certain filter types, compression levels, or strategies by following it with '-f filter', '-l level', or '-z strategy'."
+        },
+        "force": {
+          "type": "boolean",
+          "default": true,
+          "description": "write output even if IDAT is larger"
+        },
+        "reduce": {
+          "type": "boolean",
+          "default": true,
+          "description": "do lossless color-type or bit-depth reduction.  (if possible). Also reduces palette length if possible. Currently only attempts to reduce the bit depth from 16 to 8. Reduces all-gray RGB or RGBA image to gray or gray-alpha. Reduces all-opaque RGBA or GA image to RGB or grayscale."
+        },
+        "f": {
+          "type": "string",
+          "description": "PNG delta filters (0-5).  filter to use with the method specified in the preceding '-m method' or '-brute' argument. 0: none; 1-4: use specified filter; 5: adaptive"
+        },
+        "m": {
+          "type": "string",
+          "description": "method [1 through 150].  pngcrush method to try.  Can be repeated as in '-m 1 -m 4 -m 7'. This can be useful if pngcrush runs out of memory when it tries methods 2, 3, 5, 6, 8, 9, or 10 which use filtering and are memory-intensive.  Methods 1, 4, and 7 use no filtering; methods 11 and up use a specified filter, compression level, and strategy."
+        },
+        "fix": {
+          "type": "boolean",
+          "description": "salvage PNG with otherwise fatal conditions"
+        },
+        "huffman": {
+          "type": "boolean",
+          "description": "use only zlib strategy 2, Huffman-only.  Fast, but almost never very effective except for certain rare image types"
+        }
+      }
+    },
+    "pngquant": {
+      "type": "object",
+      "description": "pngquant 命令行选项",
+      "properties": {
+        "quality": {
+          "type": "string",
+          "description": "min-max  don't save below min, use fewer colors below max (0-100)"
+        },
+        "speed": {
+          "type": "string",
+          "description": "speed/quality trade-off. 1=slow, 3=default, 11=fast & rough"
+        },
+        "nofs": {
+          "type": "boolean",
+          "description": "disable Floyd-Steinberg dithering"
+        },
+        "posterize": {
+          "type": "string",
+          "description": "output lower-precision color (e.g. for ARGB4444 output)"
+        }
+      }
+    },
+    "zopflipng": {
+      "type": "object",
+      "description": "zopflipng 命令行选项",
+      "properties": {
+        "m": {
+          "type": "boolean",
+          "default": true,
+          "description": "compress more: use more iterations (depending on file size)"
+        },
+        "lossyTransparent": {
+          "type": "boolean",
+          "description": "remove colors behind alpha channel 0. No visual difference, removes hidden information."
+        }
+      }
+    },
+    "tinypng": {
+      "type": "object",
+      "description": "tinypng 选项",
+      "required": [
+        "tokens"
+      ],
+      "properties": {
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cacheDir": {
+          "type": "string",
+          "description": "缓存 tinypng 处理后的文件，避免重复处理，节省 api 调用次数"
+        },
+        "recordFile": {
+          "type": "string",
+          "description": "记录文件，记录 token 使用或过期情况，给系统用的，对用户无意义，推建设置"
+        }
+      }
+    },
+    "svgo": {
+      "type": "object",
+      "description": "svgo 选项",
+      "properties": {
+        "plugins": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}

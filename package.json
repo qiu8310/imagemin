@@ -3,16 +3,22 @@
   "version": "0.0.0",
   "description": "",
   "main": "lib/index.js",
+  "types": "lib/index.d.js",
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "postinstall": "node lib/install.js"
   },
   "author": "Mora <qiuzhongleiabc@126.com> (https://qiu8310.github.io/)",
   "license": "MIT",
   "dependencies": {
+    "@mora/tinypng": "0.0.6",
     "@types/fs-extra": "3.0.3",
+    "@types/lodash": "4",
     "bin-wrapper": "3.0.2",
     "fs-extra": "3.0.1",
+    "imageinfo": "1.0.4",
+    "lodash": "4.17.4",
     "mora-scripts": "~1.6.5",
     "tslib": "1.7.1"
   },

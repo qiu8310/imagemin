@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": false,
     "noImplicitAny": false,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "experimentalDecorators": true
   },
   "include": [

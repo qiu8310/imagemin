@@ -1,14 +1,4 @@
 {
-  "gifsicle": {
-    "desc": "",
-    "alias": ["gif"],
-    "test": ["--help"]
-  },
-  "optipng": {
-    "desc": "",
-    "alias": [],
-    "test": ["-help"]
-  },
   "jpegtran": {
     "desc": "",
     "alias": [],
@@ -19,15 +9,20 @@
     "alias": [],
     "test": ["-version"]
   },
-
-  "guetzli": {
-    "desc": "",
-    "alias": []
-  },
   "jpegoptim": {
     "desc": "",
     "alias": [],
     "test": ["-h"]
+  },
+  "guetzli": {
+    "desc": "",
+    "alias": []
+  },
+
+  "optipng": {
+    "desc": "",
+    "alias": [],
+    "test": ["-help"]
   },
   "pngcrush": {
     "desc": "",
@@ -43,5 +38,10 @@
     "desc": "",
     "alias": [],
     "test": ["-h"]
+  },
+  "gifsicle": {
+    "desc": "",
+    "alias": ["gif"],
+    "test": ["--help"]
   }
 }

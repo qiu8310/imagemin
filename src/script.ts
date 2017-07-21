@@ -8,6 +8,7 @@ import * as exists from 'mora-scripts/libs/fs/exists'
 import * as inject from 'mora-scripts/libs/fs/inject'
 import * as info from 'mora-scripts/libs/sys/info'
 
+const EOL = require('os').EOL
 const root = path.dirname(__dirname)
 const submodules = Object.keys(require('../modules.json'))
 const submoduleFolders = ((dir) => {
@@ -17,7 +18,7 @@ const submoduleFolders = ((dir) => {
 cli({help: false, version: false})
   .commands({
     submodule: {
-      desc: '根据 map-extra.json 判断是否所有 submodule 都安装了，没安装的话输出安装命令',
+      desc: '根据 modules.json 判断是否所有 submodule 都安装了，没安装的话输出安装命令',
       cmd() {
         let existKeys = submoduleFolders.map(f => path.basename(f))
         submodules
@@ -60,7 +61,13 @@ cli({help: false, version: false})
     inject: {
       desc: '注入 modules 到 interface.ts 中',
       cmd() {
-        inject(path.join(root, 'src', 'interface.ts'), {bins: submodules.map(s => `${s}: IBinWrapper`).join(require('os').EOL)})
+        const properties = require('../imagemin-schema.json').properties
+        let binOptions = Object.keys(properties).map(key => parseSchemaDefineToTS(key, properties[key])).join(EOL)
+        console.log(inject(path.join(root, 'src', 'interface.ts'), {
+          binWrappers: submodules.map(s => `${s}: IBinWrapper`).join(require('os').EOL),
+          bins: 'export declare type IBin = \'' + submodules.join('\' | \'') + '\'',
+          binOptions
+        }))
       }
     },
     preinstall: {
@@ -135,4 +142,27 @@ function reducePromiseFunctions<T>(values: Array<(last: any) => PromiseLike<T>>,
 
 function reducePromise<T>(values: Array<PromiseLike<T>>): Promise<undefined> {
   return reducePromiseFunctions(values.map(v => () => v))
+}
+
+function parseSchemaDefineToTS(name, schemaDefine) {
+  /*
+    jpegtran: {
+      ** desc *
+      copy: string
+    }
+   */
+  let {properties, required = []} = schemaDefine
+  let allLines = Object.keys(properties).map(key => {
+    let {description, anyOf, type, items} = properties[key]
+    let lines = []
+    if (description) lines.push('  /** ' + description + ' */')
+    let ts = anyOf && anyOf[0] && anyOf[0].enum
+      ? `${anyOf[0].enum.map(n => typeof n === 'number' ? n : '\'' + n + '\'').join(' | ')}`  // 枚举
+      : type === 'array'
+        ? (items && items.type ? items.type + '[]' : 'any[]')
+        : [].concat(type).join(' | ')       // type 类型
+    lines.push(`  '${key}'${required.indexOf(key) < 0 ? '?' : ''}: ${ts}`)
+    return lines.join(EOL)
+  })
+  return `${name}?: {${EOL}${allLines.join(EOL)}${EOL}}`
 }
